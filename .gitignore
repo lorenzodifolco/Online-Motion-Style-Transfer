@@ -5,3 +5,5 @@ utils/__pycache__/*
 __pycache__/*
 .idea/*
 python_env/*
+data/*
+output_dir/*

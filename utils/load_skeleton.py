@@ -2,7 +2,6 @@ import yaml
 import numpy as np
 import os
 import sys
-from os.path import join as pjoin
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASEPATH)
 import BVH as BVH

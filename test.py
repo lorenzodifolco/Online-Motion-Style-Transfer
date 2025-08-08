@@ -1,18 +1,11 @@
 import argparse
-import json
-import logging
 import os
 import torch
-import time
 import numpy as np
-import sys
 import os
-from statistics import mean
 
-from model import RecurrentStylization, ContentClassification
-from torch.utils.tensorboard import SummaryWriter
-from dataloader import MotionDataset
-from postprocess import save_bvh_from_network_output, remove_fs
+from model import RecurrentStylization
+from postprocess import remove_fs
 from utils.animation_data import AnimationData
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -92,7 +85,7 @@ def main():
 
     model = RecurrentStylization(args, dim_dict).to(device)
 
-    model.load_state_dict(torch.load(os.path.join(args.load_dir, 'model/model_2000.pt')))
+    model.load_state_dict(torch.load(os.path.join(args.load_dir, 'model/model_2000.pt'), map_location=device)) 
     model.eval()
 
     for (key,val) in test_data.items():

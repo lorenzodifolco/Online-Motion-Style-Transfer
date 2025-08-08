@@ -8,7 +8,7 @@ sys.path.insert(0, pjoin(BASEPATH, '..'))
 import numpy as np
 import json
 from scipy.ndimage import gaussian_filter1d
-from style_transfer.probe.anim_view import visualize
+# from style_transfer.probe.anim_view import visualize
 
 
 class AnimationData2D:
@@ -122,7 +122,9 @@ def test():
         anim2d = AnimationData2D.from_openpose_json(f'../../data/treadmill/json_inputs/{num}')
         bla[str(num)] = {"motion": anim2d.get_projection(), "foot_contact": None}
 
-    visualize(bla)
+    # visualize(bla)
+    for key, val in bla.items():
+        print(f"Key: {key}, Value shape: {val['motion'].shape}")    
 
 
 if __name__ == '__main__':

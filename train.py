@@ -6,12 +6,11 @@ import time
 import numpy as np
 import os
 from statistics import mean
-from torch.utils.tensorboard import SummaryWriter
 
 from model import RecurrentStylization, ContentClassification
 from utils.utils import make_dir, get_style_name, create_logger
 from dataloader import MotionDataset
-from postprocess import save_bvh_from_network_output, remove_fs
+from postprocess import save_bvh_from_network_output
 from utils.utils import *
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
